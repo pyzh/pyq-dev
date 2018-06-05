@@ -32,6 +32,7 @@ from distutils.command.config import config
 from distutils.command.install import install
 from distutils.command.install_scripts import install_scripts
 from distutils.sysconfig import get_config_vars
+import sysconfig
 
 WINDOWS = platform.system() == 'Windows'
 if WINDOWS:
@@ -261,6 +262,11 @@ def get_python_dll(executable):
                                           os.path.dirname(executable))
     elif sysname == 'Windows':
         return 'python{}{}.dll'.format(*sys.version_info[:2])
+    # This is known to work for Anaconda
+    ldlibrary = sysconfig.get_config_var('LDLIBRARY')
+    libdir = sysconfig.get_config_var('LIBDIR')
+    if ldlibrary and libdir:
+        return os.path.join(libdir, ldlibrary)
     raise RuntimeError('no python dll')
 
 
