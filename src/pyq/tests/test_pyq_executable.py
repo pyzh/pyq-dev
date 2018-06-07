@@ -122,7 +122,7 @@ def test_q_venv2(tmpdir, monkeypatch, q_arch):
     # QHOME not set, VIRTUAL_ENV not set, HOME set to tempdir
     monkeypatch.setenv("HOME", tmpdir)
     monkeypatch.delenv("QHOME")
-    monkeypatch.delenv("VIRTUAL_ENV")
+    monkeypatch.delenv("VIRTUAL_ENV", raising=False)
     monkeypatch.setenv('PATH', tmpdir, prepend=':')
     tmpdir.join('pyq').mksymlinkto(sys.executable)
 
@@ -141,7 +141,7 @@ def test_q_venv2(tmpdir, monkeypatch, q_arch):
 def test_q_venv3(tmpdir, monkeypatch, q_arch):
     # QHOME not set, VIRTUAL_ENV not set, q is next to bin/pyq
     monkeypatch.delenv("QHOME")
-    monkeypatch.delenv("VIRTUAL_ENV")
+    monkeypatch.delenv("VIRTUAL_ENV", raising=False)
     bindir = tmpdir.join('bin')
     bindir.ensure(dir=1)
     monkeypatch.setenv('PATH', bindir, prepend=':')
