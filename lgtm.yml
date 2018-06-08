@@ -19,7 +19,7 @@ extraction:
       - export GIT=true
     configure:    # Customizable step used only by C/C++ extraction.
       command:
-        - ./prepare_deps
+        - true
     before_index:    # Customizable step used by all languages.
         - true
     index:    # Customizable step used by all languages.
