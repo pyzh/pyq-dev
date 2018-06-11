@@ -32,7 +32,8 @@ install:
       echo "python_dll=libpython3.6m.so" >> setup.cfg;
     fi
   # Install requirements
-  - conda install -c enlnt pytest pytest-pyq pytest-cov coverage
+  - conda install -c enlnt numpy pytest pytest-cov coverage
+  - pip install pytest-pyq
   - . .travis/build.sh
   - gcov src/pyq/_k.c
 
