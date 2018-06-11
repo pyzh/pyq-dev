@@ -14,6 +14,6 @@ python setup.py install_scripts
 LDFLAGS='$arch --coverage -lgcov'
 CFLAGS='$arch --coverage'
 export CFLAGS LDFLAGS
-python setup.py build_ext --build-tmp .
+python setup.py build_ext --build-temp .
 python setup.py install_lib
 unset CFLAGS LDFLAGS
