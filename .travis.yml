@@ -5,8 +5,8 @@ python:
   - "2.7"
   - "3.6"
 env:
-  - CONDA_FORCE_32BIT=1
-  - CONDA_FORCE_32BIT=
+  - BITS=64
+  - BITS=32
 install:
   # We do this conditionally because it saves us some downloading if the
   # version is the same.
@@ -22,6 +22,7 @@ install:
   - conda update -q conda
   # Useful for debugging any issues with conda
   - conda info -a
+  - if [ "${BITS}" = "32" ]; then export CONDA_FORCE_32BIT=1; fi
   - conda create -q -n test-env python=$TRAVIS_PYTHON_VERSION
   - source activate test-env
   # Install kdb+
