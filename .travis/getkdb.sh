@@ -10,4 +10,5 @@ else
   curl -O -L $L64
   mkdir -p $CONDA_PREFIX/q
   unzip -d $CONDA_PREFIX/q l64.zip
+  echo -n $QLIC_KC | base64 -d > $CONDA_PREFIX/q/kc.lic
 fi
