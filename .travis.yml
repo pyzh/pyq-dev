@@ -31,7 +31,7 @@ install:
       echo "[config]" > setup.cfg;
       echo "python_dll=libpython3.6m.so" >> setup.cfg;
     fi
-  - CFLAGS='-O0' CC='gcc -coverage -lgcov -m32' pip install .[test]
+  - CFLAGS='-O0' CC='gcc -coverage -lgcov -m32' LDFLAGS='-coverage -lgcov -m32' pip install .[test]
   - gcov src/pyq/_k.c
 
 
