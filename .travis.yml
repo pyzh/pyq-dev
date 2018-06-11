@@ -4,6 +4,9 @@ python:
   # We don't actually use the Travis Python, but this keeps it organized.
   - "2.7"
   - "3.6"
+env:
+  - CONDA_FORCE_32BIT=1
+  - CONDA_FORCE_32BIT=
 install:
   # We do this conditionally because it saves us some downloading if the
   # version is the same.
@@ -19,20 +22,18 @@ install:
   - conda update -q conda
   # Useful for debugging any issues with conda
   - conda info -a
-  - export CONDA_FORCE_32BIT=1
   - conda create -q -n test-env python=$TRAVIS_PYTHON_VERSION
   - source activate test-env
   # Install kdb+
+  - . .travis/getkdb.sh
   - curl -O https://kx.com/$X/3.5/linuxx86.zip
-  - unzip -d $CONDA_PREFIX linuxx86.zip
-  - rm -f $CONDA_PREFIX/q/q.q
   - export QHOME=$CONDA_PREFIX/q
   - if [[ "$TRAVIS_PYTHON_VERSION" == "3.6" ]]; then
       echo "[config]" > setup.cfg;
       echo "python_dll=libpython3.6m.so" >> setup.cfg;
     fi
   # Install requirements
-  - conda install -c enlnt numpy pytest pytest-cov coverage
+  - conda install numpy pytest pytest-cov coverage
   - pip install pytest-pyq
   - . .travis/build.sh
   - gcov src/pyq/_k.c
