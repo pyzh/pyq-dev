@@ -32,7 +32,7 @@ install:
       echo "python_dll=libpython3.6m.so" >> setup.cfg;
     fi
   # Install requirements
-  - conda install pytest pytest-pyq
+  - conda install -c enlnt pytest pytest-pyq
   - . .travis/build.sh
   - gcov src/pyq/_k.c
 
