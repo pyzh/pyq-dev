@@ -7,8 +7,6 @@ if [ "${BITS}" = "32" ]; then
   unzip -d $CONDA_PREFIX linuxx86.zip
   rm -f $CONDA_PREFIX/q/q.q
 else
-  curl -O -L $L64
-  mkdir -p $CONDA_PREFIX/q
-  unzip -d $CONDA_PREFIX/q l64.zip
+  conda install -c kx kdb
   echo -n $QLIC_KC | base64 -d > $CONDA_PREFIX/q/kc.lic
 fi
