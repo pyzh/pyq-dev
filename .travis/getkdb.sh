@@ -8,5 +8,5 @@ if [ "${BITS}" = "32" ]; then
   rm -f $CONDA_PREFIX/q/q.q
 else
   conda install -c kx kdb
-  echo -n $QLIC_KC | base64 -d > $CONDA_PREFIX/q/kc.lic
+  echo -n $QLIC_KC | base64 --decode > $CONDA_PREFIX/q/kc.lic
 fi
