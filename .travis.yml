@@ -20,6 +20,8 @@ matrix:
     - os: osx
       python: "2.7"
       env: BITS=64
+  allow_failures:
+    - os: osx
 
 install:
   # We do this conditionally because it saves us some downloading if the
