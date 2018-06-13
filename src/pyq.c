@@ -267,9 +267,7 @@ main(int argc, char *argv[])
     args = malloc((sizeof (char*)) * (argc + 3));
     fullprogpath = get_progpath(argv[0]);
 #ifdef __APPLE__
-
-    args[0] = progpath;
-    setenv("PYTHONEXECUTABLE", progpath, 1);
+    setenv("PYTHONEXECUTABLE", fullprogpath, 1);
 #endif
     args[0] = fullprogpath;
     args[1] = "python.q";
