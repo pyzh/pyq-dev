@@ -1,4 +1,5 @@
 # Based on https://conda.io/docs/user-guide/tasks/use-conda-with-travis-ci.html
+language: c
 matrix:
   include:
     - os: linux
