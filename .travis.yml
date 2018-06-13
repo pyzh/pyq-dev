@@ -46,7 +46,7 @@ install:
   - conda info -a
   - if [ "${BITS}" = "32" ]; then export CONDA_FORCE_32BIT=1; fi
   - conda create -q -n test-env python=$PY
-  - source activate test-env
+  - conda activate test-env
   # Install kdb+
   - . .travis/getkdb.sh
   - export QHOME=$CONDA_PREFIX/q
