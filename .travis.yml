@@ -1,12 +1,26 @@
 # Based on https://conda.io/docs/user-guide/tasks/use-conda-with-travis-ci.html
 language: python
-python:
-  # We don't actually use the Travis Python, but this keeps it organized.
-  - "2.7"
-  - "3.6"
-env:
-  - BITS=64
-  - BITS=32
+matrix:
+  include:
+    - os: linux
+      python: "3.6"
+      env: BITS=64
+    - os: linux
+      python: "2.7"
+      env: BITS=64
+    - os: linux
+      python: "3.6"
+      env: BITS=32
+    - os: linux
+      python: "2.7"
+      env: BITS=32
+    - os: osx
+      python: "3.6"
+      env: BITS=64
+    - os: osx
+      python: "2.7"
+      env: BITS=64
+
 install:
   # We do this conditionally because it saves us some downloading if the
   # version is the same.
