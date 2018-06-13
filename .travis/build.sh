@@ -7,10 +7,13 @@ if [ -n "${CONDA_FORCE_32BIT}" ]; then
 else
    arch=""
 fi
+if [[ "${TRAVIS_OS_NAME}" == "linux" ]]; then
+    lgcov=" -lgcov";
+fi
 python setup.py config
 python setup.py install_qlib
 python setup.py install_scripts
-LDFLAGS="${arch}--coverage -lgcov"
+LDFLAGS="${arch}--coverage${lgcov}"
 CFLAGS="${arch}--coverage"
 CC="gcc $LDFLAGS"
 export CFLAGS LDFLAGS CC
