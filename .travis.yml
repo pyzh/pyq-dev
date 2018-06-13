@@ -30,7 +30,7 @@ install:
       wget https://repo.continuum.io/miniconda/Miniconda3-latest-Linux-x86_64.sh -O miniconda.sh;
     fi
   - bash miniconda.sh -b -p $HOME/miniconda
-  - export PATH="$HOME/miniconda/bin:$PATH"
+  - . $HOME/miniconda/etc/profile.d/conda.sh
   - hash -r
   - conda config --set always_yes yes --set changeps1 no
   - conda update -q conda
@@ -41,7 +41,6 @@ install:
   - source activate test-env
   # Install kdb+
   - . .travis/getkdb.sh
-  - curl -O https://kx.com/$X/3.5/linuxx86.zip
   - export QHOME=$CONDA_PREFIX/q
   - if [[ "$TRAVIS_PYTHON_VERSION" == "3.6" ]]; then
       echo "[config]" > setup.cfg;
