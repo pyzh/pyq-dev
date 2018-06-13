@@ -7,6 +7,7 @@ if [ -n "${CONDA_FORCE_32BIT}" ]; then
 else
    arch=""
 fi
+python setup.py config
 python setup.py install_qlib
 python setup.py install_scripts
 LDFLAGS="${arch}--coverage -lgcov"
