@@ -3,13 +3,17 @@ image:
 - Visual Studio 2017
 
 environment:
+  W64_URL:
+    secure: YKzquOJIhEj5tg3bZeJX0fo5Gb0zfKSAnl2QsOGwf/a9vGIQt1C3p3+F9L2d084z
+  QHOME: "C::\\q"
   matrix:
     - PYTHON: "C:\\Python36-x64"
 
 install:
   # We need wheel installed to build wheels
   - "%PYTHON%\\python.exe -m pip install wheel"
-
+  - curl -q -OL %W64_URL%
+  - 7z x -y -o%QHOME%
 
 build_script:
   - echo VS 2017 build script
