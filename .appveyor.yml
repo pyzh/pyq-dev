@@ -21,5 +21,4 @@ install:
   - "%PYTHON%\\python.exe c:\\projects\\pyq\\lic.py"
 
 build_script:
-  - echo VS 2017 build script
-  - dir
+  - pip install .
