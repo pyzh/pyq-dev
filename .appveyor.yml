@@ -23,7 +23,8 @@ build_script:
   - "%PYTHON%\\python.exe -m pip -vvv install ."
 
 test_script:
+  - "set QBIN=%QHOME%\\w64\\q.exe"
   - "set PATH=%PATH%;%PYTHON%"
   - echo %PATH%
   - "type  %QHOME%\\pyq-config.q"
-  - "%QHOME%\\w64\\q.exe python.q -mpytest --pyargs pyq --verbose -q"
+  - "%QBIN% python.q -mpytest --pyargs pyq --verbose -q"
