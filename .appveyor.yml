@@ -24,6 +24,5 @@ build_script:
 
 test_script:
   - dir %QHOME%
-  - "dir  %QHOME%\\w64"
-  - "copy %QHOME%\\w64\\p.dll %QHOME%\\w64\\p.so"
+  - "type  %QHOME%\\pyq-config.q"
   - "%QHOME%\\w64\\q.exe python.q --pyargs pyq --verbose -q"
