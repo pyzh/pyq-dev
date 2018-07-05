@@ -20,7 +20,7 @@ install:
   - "%PYTHON%\\python.exe c:\\projects\\pyq\\lic.py"
 
 build_script:
-  - "%PYTHON%\\python.exe -m pip install ."
+  - "%PYTHON%\\python.exe -m pip -vvv install ."
 
 test_script:
-  - "%QHOME%\\w64\\q.exe python.q --pyargs pyq --verbose"
+  - "%QHOME%\\w64\\q.exe python.q --pyargs pyq --verbose -q"
