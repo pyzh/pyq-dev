@@ -26,4 +26,4 @@ test_script:
   - "set PATH=%PATH%;%PYTHON%"
   - echo %PATH%
   - "type  %QHOME%\\pyq-config.q"
-  - "%QHOME%\\w64\\q.exe python.q --pyargs pyq --verbose -q"
+  - "%QHOME%\\w64\\q.exe python.q -mpytest --pyargs pyq --verbose -q"
