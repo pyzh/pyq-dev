@@ -1,0 +1,15 @@
+version: '4.2.0.{build}'
+image:
+- Visual Studio 2017
+
+environment:
+  matrix:
+    - PYTHON: "C:\\Python36-x64"
+
+install:
+  # We need wheel installed to build wheels
+  - "%PYTHON%\\python.exe -m pip install wheel"
+
+
+build_script:
+  - echo VS 2017 build script
