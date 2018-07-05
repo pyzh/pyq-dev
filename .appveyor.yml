@@ -23,4 +23,4 @@ build_script:
   - "%PYTHON%\\python.exe -m pip install ."
 
 test_script:
-  - "%QHOME%\\w64\\q.exe python.q --pyargs pyq --verbose
+  - "%QHOME%\\w64\\q.exe python.q --pyargs pyq --verbose"
