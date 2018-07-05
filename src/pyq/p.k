@@ -1,6 +1,7 @@
 \l pyq-config.q
 \d .p
-q)(`p 2:(`p_init;1))python_dll
+q)p_init:(`p 2:(`p_init;1))
+q)p_init python_dll
 / We use function composition to suppress back-traces
 / from lambda.  Note that parentheses are required.
 e:('[e;],[;"\000"])
