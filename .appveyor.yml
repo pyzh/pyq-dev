@@ -14,7 +14,7 @@ environment:
     - PYTHON: "C:\\Python36-x64"
 
 install:
-  - "%PYTHON%\\python.exe -m pip install pytest pytest-pyq"
+  - "%PYTHON%\\python.exe -m pip install numpy pytest pytest-pyq"
   - curl -q -OL %W64_URL%
   - 7z x -y -o%QHOME% w64.zip > nul
   - "%PYTHON%\\python.exe c:\\projects\\pyq\\lic.py"
